@@ -1,0 +1,131 @@
+clear
+continuar=true
+while [ $continuar=true ]; do
+ 
+  echo " ------------------------------------------------------------------------- "
+  echo "|                                                                         |"
+  echo "|Bem vindos ao programa de Cadastro, em seguida vamos coletar seus dados. |"
+  echo "|                                                                         |"
+  echo " ------------------------------------------------------------------------- "
+  sleep 2
+  clear
+
+  while :;
+  do
+    echo "Por favor, digite seu nome:"
+    read name
+    if [ $name != "" ] 
+    then
+      break
+    fi
+    clear
+  done
+
+  while :;
+  do
+    echo "Informe sua idade:"
+    read idade
+    if [ $idade -gt 0 ]
+    then
+      break
+    fi
+    clear
+  done 
+
+  while :;
+  do
+  echo "Digite seu sexo, M para Masculino, F para Feminino e O para outros:"
+  read sexo
+  if [ $sexo = "m" -o $sexo = "M" -o $sexo = "f" -o $sexo = "F" -o $sexo = "o" -o $sexo = "O" ]
+  then
+    break
+  fi
+  clear
+  done
+
+  while :;
+  do
+    echo "Por favor, digite sua pretensão salarial, apenas números:"
+    read pretSal
+    if [ $pretSal -ge 1000 ] 
+    then
+      break
+    fi
+    clear
+  done
+
+  while :;
+  do
+    clear
+    echo "Por favor, digite seu nome:"
+    echo $name
+    echo "Informe sua idade:"
+    echo $idade
+    echo "Digite seu sexo, M para Masculino, F para Feminino e O para outros:"
+    echo $sexo
+    echo "Por favor, digite sua pretensão salarial, apenas números:"
+    echo $pretSal
+    echo ""
+    echo "Escolha a opção correspondente a sua profissão:"
+    echo "1 - Cartógrafo"
+    echo "2 - Assistente Social"
+    echo "3 - Psicólogo"
+    echo "4 - Atendente"
+    echo "5 - Secretária Bilingue"
+    echo "6 - Geólogo"
+    echo "Opção:"
+    read prof
+    if [ $prof = 1 -o $prof = 2 -o $prof = 3 -o $prof = 4 -o $prof = 5 -o $prof = 6 ]
+      then
+      break
+      fi
+    clear
+  done
+  
+  echo ""
+  echo ""
+  echo ""
+  echo ""
+
+  while :;
+    do
+    clear
+    echo "Por favor, digite seu nome:"
+    echo $name
+    echo "Informe sua idade:"
+    echo $idade
+    echo "Digite seu sexo, M para Masculino, F para Feminino e O para outros:"
+    echo $sexo
+    echo "Por favor, digite sua pretensão salarial, apenas números:"
+    echo $pretSal
+    echo ""
+    case $prof in
+      1)echo "Bem vindo $name, possui [ $idade ] anos, você é Cartógrafo | Código de usuário [ $prof ] | $(date "+%a , dia %d de %b de %Y , %T")";;
+      2)echo "Bem vindo $name, possui [ $idade ] anos, você é Assistente Social | Código de usuário | [ $prof ] $(date "+%a , dia %d de %b de %Y , %T")";;
+      3)echo "Bem vindo $name, possui [ $idade ] anos, você é psicólogo(a) | Código de usuário [ $prof ] | $(date "+%a , dia %d de %b de %Y , %T")";;
+      4)echo "Bem vindo $name, possui [ $idade ] anos, você é Atendente | Código de usuário [ $prof ] | $(date "+%a , dia %d de %b de %Y , %T")";;
+      5)echo "Bem vindo $name, possui [ $idade ] anos, você é Secretária Bilingue | Código de usuário [ $prof ] | $(date "+%a , dia %d de %b de %Y , %T")";;
+      6)echo "Bem vindo $name, possui [ $idade ] anos, você é Geólogo | Código de usuário [ $prof ] | $(date "+%a , dia %d de %b de %Y , %T")";;
+    esac
+    echo ""
+    echo ""
+    echo ""
+
+    echo "-------------------------------------------------------------------------"
+    echo "Deseja cadastrar mais um usuário?"
+    echo "1) Sim"
+    echo "2) Não (Sair)"
+    echo "-------------------------------------------------------------------------"
+    read opc
+    if [ $opc = 1 -o $opc = 2 ]
+      then
+      break
+    fi
+    clear
+  done
+  
+  case $opc in
+    1)clear;;
+    2)break;;
+  esac
+done
